@@ -20,73 +20,75 @@ class _DashboardState extends State<AddData> {
       appBar: AppBar(
         title: Text("Add Data "),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: ctrlName,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter Studnet Name"
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: ctrlName,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Enter Studnet Name"
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: ctrlRoll,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter Student Roll"
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: ctrlRoll,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Enter Student Roll"
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: ctrlclass,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter Student class"
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: ctrlclass,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Enter Student class"
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: ctrlemail,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter student Email"
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: ctrlemail,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Enter student Email"
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: ctrlphn,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter student phn number"
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: ctrlphn,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Enter student phn number"
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              child: Text("Save"),
-              onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context)=>Dashboard())
-                );
-                addDatatoDatabase(ctrlName.text,ctrlRoll.text,ctrlclass.text,ctrlemail.text,ctrlphn.text);
-              },
-            )
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child: Text("Save"),
+                onPressed: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=>Dashboard())
+                  );
+                  addDatatoDatabase(ctrlName.text,ctrlRoll.text,ctrlclass.text,ctrlemail.text,ctrlphn.text);
+                },
+              )
+            ),
 
-        ],
+          ],
+        ),
       ),
     );
   }
