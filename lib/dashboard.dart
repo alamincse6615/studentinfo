@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/addinfo.dart';
 
@@ -32,6 +33,20 @@ class _DashboardState extends State<Dashboard> {
           );
         },
         child: Icon(Icons.add),
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.white,
+        color: Colors.blueAccent,
+        buttonBackgroundColor: Colors.blueAccent,
+        animationCurve: Curves.easeInOut,
+        items: <Widget>[
+          Icon(Icons.add,color: Colors.white,),
+          Icon(Icons.list, color: Colors.white),
+          Icon(Icons.compare_arrows, color: Colors.white),
+        ],
+        onTap: (index) {
+
+        },
       ),
 
       drawer: Drawer(

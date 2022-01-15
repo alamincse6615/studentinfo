@@ -22,6 +22,7 @@ class _DashboardState extends State<AddData> {
       ),
       body: SingleChildScrollView(
         child: Column(
+
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
