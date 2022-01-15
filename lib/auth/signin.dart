@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/auth/signup.dart';
+import 'package:student_info/dashboard.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -45,6 +46,10 @@ class _SignInState extends State<SignIn> {
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context)=>Dashboard())
+                );
 
               },
               child: Text("Sign In"),

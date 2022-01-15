@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/auth/signin.dart';
+import 'package:student_info/dashboard.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -26,6 +27,27 @@ class _SignInState extends State<SignUp> {
               controller: emailCtrl,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
+                  hintText: "Enter your Name"
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              obscureText: true,
+              controller: passCtrl,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "Enter your phn"
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: emailCtrl,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
                   hintText: "Enter your Email"
               ),
             ),
@@ -45,7 +67,10 @@ class _SignInState extends State<SignUp> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: (){
-
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context)=>Dashboard())
+                  );
                 },
                 child: Text("Sign Up"),
               )
@@ -70,7 +95,6 @@ class _SignInState extends State<SignUp> {
                 ),
               )
           ),
-
         ],
       ),
     );

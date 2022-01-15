@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student_info/dashboard.dart';
 
 class AddData extends StatefulWidget {
   const AddData({Key? key}) : super(key: key);
@@ -76,6 +77,10 @@ class _DashboardState extends State<AddData> {
             child: ElevatedButton(
               child: Text("Save"),
               onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context)=>Dashboard())
+                );
                 addDatatoDatabase(ctrlName.text,ctrlRoll.text,ctrlclass.text,ctrlemail.text,ctrlphn.text);
               },
             )
@@ -88,5 +93,8 @@ class _DashboardState extends State<AddData> {
 }
 
 addDatatoDatabase(String name, String roll, String studentClass, String email, String phn) {
+
+
+
 
 }
