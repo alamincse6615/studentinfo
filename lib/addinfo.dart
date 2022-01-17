@@ -97,7 +97,6 @@ class _DashboardState extends State<AddData> {
 
 addDatatoDatabase(String name, String roll, String studentClass, String email, String phn) {
 
-
-
-
 }
+
+//Mui Rasel Hassan, mui sry mui kono kaj korte pari nai, mui antorik vabe dukhito...
