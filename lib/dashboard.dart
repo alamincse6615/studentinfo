@@ -1,6 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:student_info/Mithun/Arrows.dart';
+import 'package:student_info/Mithun/List.dart';
+import 'package:student_info/Mithun/Studentinfo.dart';
 import 'package:student_info/addinfo.dart';
 
 class Dashboard extends StatefulWidget {
@@ -43,13 +46,32 @@ class _DashboardState extends State<Dashboard> {
         buttonBackgroundColor: Colors.blueAccent,
         animationCurve: Curves.easeInOut,
         items: <Widget>[
-          Icon(Icons.add,color: Colors.white,),
-          Icon(Icons.list, color: Colors.white),
-          Icon(Icons.compare_arrows, color: Colors.white),
-        ],
-        onTap: (index) {
+          InkWell(
+            child: Icon(Icons.add,color: Colors.white,
+            ),
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(
+                  builder: (context)=>add(),),);
+            },
+          ),
 
-        },
+          InkWell(child: Icon(Icons.list, color: Colors.white),
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(
+                  builder: (context)=>list(),));
+            },
+          ),
+
+          InkWell(child: Icon(Icons.compare_arrows, color: Colors.white),
+          onTap: (){
+            Navigator.push(context,
+                MaterialPageRoute(
+                builder: (context)=>arrows(),));
+          },
+          ),
+        ],
       ),
 
       drawer: Drawer(
