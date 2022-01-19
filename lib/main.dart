@@ -62,6 +62,148 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Color(0xff1a234f),
       body: Center(child: Image.network("https://www.coilk12.net/cms/lib/CA01001063/Centricity/Domain/45/student%20information.png")),
+      //jisan
+      appBar: AppBar(
+        title: Text('Student Info'),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: Icon(
+              Icons.search,
+              size: 28.0,
+              color: Colors.white,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: PopupMenuButton(
+              tooltip: 'Menu',
+              child: Icon(
+                Icons.more_vert,
+                size: 28.0,
+                color: Colors.white,
+              ),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.web,
+                        color: Colors.black54,
+                        size: 22.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 10.0,
+                        ),
+                        child: Text(
+                          "Visit Us",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.add_a_photo,
+                        color: Colors.black54,
+                        size: 22.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 10.0,
+                        ),
+                        child: Text(
+                          "Add photos",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.favorite,
+                        color: Colors.black54,
+                        size: 22.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 10.0,
+                        ),
+                        child: Text(
+                          "Love US",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.share,
+                        color: Colors.black54,
+                        size: 22.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 10.0,
+                        ),
+                        child: Text(
+                          "Share",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.exit_to_app_rounded,
+                        color: Colors.black54,
+                        size: 22.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 10.0,
+                        ),
+                        child: Text(
+                          "Exit",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
