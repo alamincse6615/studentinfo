@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/auth/signin.dart';
@@ -20,6 +21,14 @@ class _SignInState extends State<SignUp> {
   final passCtrl = TextEditingController();
   final nameCtrl = TextEditingController();
   final phnCtrl = TextEditingController();
+  late DatabaseReference _databaseReference;
+
+
+  @override
+  void initState() {
+    _databaseReference = FirebaseDatabase.instance.reference();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +146,7 @@ class _SignInState extends State<SignUp> {
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
                           onPressed: (){
-                            _signupinfo(emailCtrl.text,passCtrl.text);
+                            _signupinfo(nameCtrl.text,phnCtrl.text,emailCtrl.text,passCtrl.text);
                           },
                           child: Text("Sign Up"),
                         )
@@ -152,6 +161,10 @@ class _SignInState extends State<SignUp> {
                               Text("Already have an Account ? "),
                               InkWell(child: Text("Sign In",style: TextStyle(color: Color(
                                   0xffe70c0c)),),onTap: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => SignIn())
+                                );
                               },
                               ),
                             ],
@@ -167,21 +180,17 @@ class _SignInState extends State<SignUp> {
       )
     );
   }
-  _signupinfo(String fdafdfojial, String dfjasl)async{
+  _signupinfo(String name, String phn, String fdafdfojial, String dfjasl)async{
     var isValid = _key.currentState!.validate();
     if(isValid){
       FirebaseAuth auth = FirebaseAuth.instance;
       UserCredential credential =  await auth.createUserWithEmailAndPassword(email: fdafdfojial, password: dfjasl);
       if(credential.user != null){
-        Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context)=>Dashboard())
-        );
+        saveinof(name,phn,fdafdfojial,dfjasl,auth.currentUser!.uid);
 
       }else{
 
-        // all kind of wrong info will be come here
-        print("data is correct");
+
       }
 
     }else{
@@ -194,5 +203,18 @@ class _SignInState extends State<SignUp> {
     return fbapp;
   }
 
-
+  saveinof(String name, String phn, String email, String pass, String uid){
+    Map<dynamic,dynamic> info = {
+      "name":name,
+      "phn":phn,
+      "email":email,
+      "password":pass,
+      "uid":uid,
+    };
+    _databaseReference.child("UserInfo").child(uid).set(info);
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context)=>Dashboard())
+    );
+  }
 }

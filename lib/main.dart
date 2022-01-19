@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       backgroundColor: Color(0xff1a234f),
-      body: Image.network("https://www.coilk12.net/cms/lib/CA01001063/Centricity/Domain/45/student%20information.png"),
+      body: Center(child: Image.network("https://www.coilk12.net/cms/lib/CA01001063/Centricity/Domain/45/student%20information.png")),
     );
   }
 

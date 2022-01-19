@@ -97,7 +97,7 @@ class _SignInState extends State<SignIn> {
                         onPressed: () {
                           _signupinfo(emailCtrl.text, passCtrl.text);
                         },
-                        child: Text("Sign Up"),
+                        child: Text("Sign In"),
                       )
                   ),
                   Padding(
@@ -107,10 +107,15 @@ class _SignInState extends State<SignIn> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Already have an Account ? "),
+                            Text("Create An New Account ? "),
                             InkWell(child: Text(
-                              "Sign In", style: TextStyle(color: Color(
-                                0xffe70c0c)),), onTap: () {},
+                              "Sign Up", style: TextStyle(color: Color(
+                                0xffe70c0c)),), onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => SignUp())
+                              );
+                            },
                             ),
                           ],
                         ),
