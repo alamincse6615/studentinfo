@@ -23,7 +23,6 @@ class _SignInState extends State<SignUp> {
   final phnCtrl = TextEditingController();
   late DatabaseReference _databaseReference;
 
-
   @override
   void initState() {
     _databaseReference = FirebaseDatabase.instance.reference();
@@ -31,328 +30,280 @@ class _SignInState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     //jisan
-        appBar: AppBar(
-          title: Text('Sign Up'),
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 10.0),
-              child: Icon(
-                Icons.search,
-                size: 28.0,
-                color: Colors.white,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 10.0),
-              child: PopupMenuButton(
-                tooltip: 'Menu',
-                child: Icon(
-                  Icons.more_vert,
-                  size: 28.0,
-                  color: Colors.white,
-                ),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.web,
-                          color: Colors.black54,
-                          size: 22.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.0,
-                          ),
-                          child: Text(
-                            "Visit Us",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.add_a_photo,
-                          color: Colors.black54,
-                          size: 22.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.0,
-                          ),
-                          child: Text(
-                            "Add photos",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.favorite,
-                          color: Colors.black54,
-                          size: 22.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.0,
-                          ),
-                          child: Text(
-                            "Love US",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.share,
-                          color: Colors.black54,
-                          size: 22.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.0,
-                          ),
-                          child: Text(
-                            "Share",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.exit_to_app_rounded,
-                          color: Colors.black54,
-                          size: 22.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.0,
-                          ),
-                          child: Text(
-                            "Exit",
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/login.png"
-              ),
-              fit: BoxFit.cover,
-            ),
+    //jisan
+    return Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/login.png"),
+            fit: BoxFit.cover,
           ),
-          child: FutureBuilder(
-            future: initialFirebase(),
-            builder: (context,info){
-              return Form(
-                key: _key,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 150, right: 100),
-                      child: Text("Registation\nNow",
-                        style:TextStyle(fontSize: 35, color: Colors.white) ,),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 200),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: TextField(
-                        controller: nameCtrl,
-                        decoration: InputDecoration(
-                          fillColor: Colors.grey.shade100,
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
+        ),
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
+            body: Stack(children: [
+              Container(
+                padding: EdgeInsets.only(left: 35, top: 30),
+                child: Text(
+                  'Create\nAccount',
+                  style: TextStyle(color: Colors.white, fontSize: 50),
+                ),
+              ),
+              SingleChildScrollView(
+                child: Container(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.28),
+                  child: FutureBuilder(
+                    future: initialFirebase(),
+                    builder: (context, info) {
+                      return Form(
+                        key: _key,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 35, right: 35),
                             ),
-                            hintText: "Enter your Name"
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        controller: phnCtrl,
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade100,
-                            filled: true,
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15),),
-                            hintText: "Enter your phn"
-                        ),
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        validator: (val){
-                          if(val==""){
-                            return "Email can't be empty";
-                          }
+                            Padding(
+                              padding: EdgeInsets.only(left: 35, right: 35),
+                              child: TextField(
+                                  style: TextStyle(color: Colors.white),
+                                  controller: nameCtrl,
 
-                        },
-                        controller: emailCtrl,
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade100,
-                            filled: true,
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15),),
-                            hintText: "Enter your Email"
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        validator: (val){
-                          if(val==""){
-                            return "password can't be empty";
-                          }
-                          else if (val!.length<6){
-                            return "password  must be 6 characters or above";
-                          }
-                        },
-                        obscureText: passOff,
-                        controller: passCtrl,
-                        decoration: InputDecoration(
-                            fillColor: Colors.grey.shade100,
-                            filled: true,
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15),),
-                            hintText: "Enter your password",
-                            suffixIcon: GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  if(passOff){
-                                    passOff = false;
-                                    passIcon = Icon(Icons.visibility);
-                                  }
-                                  else if (!passOff){
-                                    passOff = true;
-                                    passIcon = Icon(Icons.visibility_off);
-                                  }
-                                });
-                              },
-                              child: passIcon,
-                            )
+                                  decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    hintText: "Enter your Name",
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  )),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Padding(
 
-                        ),
-                      ),
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                          onPressed: (){
-                            _signupinfo(nameCtrl.text,phnCtrl.text,emailCtrl.text,passCtrl.text);
-                          },
-                          child: Text("Sign Up"),
-                        )
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Center(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Already have an Account ? "),
-                              InkWell(child: Text("Sign In",style: TextStyle(color: Color(
-                                  0xffe70c0c)),),onTap: (){
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => SignIn())
-                                );
-                              },
+                              padding: EdgeInsets.only(left: 35, right: 35),
+                              child: TextField(
+                                style: TextStyle(color: Colors.white),
+                                controller: phnCtrl,
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    hintText: "Enter your Number",
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    )),
+                                keyboardType: TextInputType.number,
                               ),
-                            ],
-                          ),
-                        )
-                    ),
-                  ],
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 35, right: 35),
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.white),
+
+                                validator: (val) {
+                                  if (val == "") {
+                                    return "Email can't be empty";
+                                  }
+                                },
+                                controller: emailCtrl,
+
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    hintText: "Enter your Email",
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    )),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 35, right: 35),
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.white),
+                                validator: (val) {
+                                  if (val == "") {
+                                    return "password can't be empty";
+                                  } else if (val!.length < 6) {
+                                    return "password  must be 6 characters or above";
+                                  }
+                                },
+                                obscureText: passOff,
+                                controller: passCtrl,
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide: BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    hintText: "Enter your password",
+                                    hintStyle: TextStyle(color: Colors.white),
+                                    suffixIcon: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          if (passOff) {
+                                            passOff = false;
+                                            passIcon = Icon(Icons.visibility);
+                                          } else if (!passOff) {
+                                            passOff = true;
+                                            passIcon =
+                                                Icon(Icons.visibility_off);
+                                          }
+                                        });
+                                      },
+                                      child: passIcon,
+                                    )),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                    padding: const EdgeInsets.only(left: 35, right: 35),
+                                    child: ElevatedButton(
+                                      onPressed: (){
+                                        _signupinfo(nameCtrl.text,phnCtrl.text,emailCtrl.text,passCtrl.text);
+
+                                      },
+                                      child: Text("Sign Up",),
+                                    )
+                                ),
+                                CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Color(0xff4c505b),
+                                  child: IconButton(
+                                      color: Colors.white,
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.arrow_forward,
+                                      )),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 100,
+                            ),
+                            Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Center(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Already have an Account ? "),
+                                      InkWell(
+                                        child: Text(
+                                          "Sign In",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                              color: Color(0xffe70c0c)),
+                                        ),
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SignIn()));
+                                        },
+                                      ),
+
+                                    ],
+                                  ),
+                                )),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              );
-            },
-          ),
-        ),
-      )
-    );
+              )
+            ])));
   }
-  _signupinfo(String name, String phn, String fdafdfojial, String dfjasl)async{
+
+  _signupinfo(
+      String name, String phn, String fdafdfojial, String dfjasl) async {
     var isValid = _key.currentState!.validate();
-    if(isValid){
+    if (isValid) {
       FirebaseAuth auth = FirebaseAuth.instance;
-      UserCredential credential =  await auth.createUserWithEmailAndPassword(email: fdafdfojial, password: dfjasl);
-      if(credential.user != null){
-        saveinof(name,phn,fdafdfojial,dfjasl,auth.currentUser!.uid);
-
-      }else{
-
-
-      }
-
-    }else{
+      UserCredential credential = await auth.createUserWithEmailAndPassword(
+          email: fdafdfojial, password: dfjasl);
+      if (credential.user != null) {
+        saveinof(name, phn, fdafdfojial, dfjasl, auth.currentUser!.uid);
+      } else {}
+    } else {
       return;
     }
   }
 
-  Future<FirebaseApp> initialFirebase()async{
+  Future<FirebaseApp> initialFirebase() async {
     FirebaseApp fbapp = await Firebase.initializeApp();
     return fbapp;
   }
 
-  saveinof(String name, String phn, String email, String pass, String uid){
-    Map<dynamic,dynamic> info = {
-      "name":name,
-      "phn":phn,
-      "email":email,
-      "password":pass,
-      "uid":uid,
+  saveinof(String name, String phn, String email, String pass, String uid) {
+    Map<dynamic, dynamic> info = {
+      "name": name,
+      "phn": phn,
+      "email": email,
+      "password": pass,
+      "uid": uid,
     };
     _databaseReference.child("UserInfo").child(uid).set(info);
     Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context)=>Dashboard())
-    );
+        context, MaterialPageRoute(builder: (context) => Dashboard()));
   }
 }
