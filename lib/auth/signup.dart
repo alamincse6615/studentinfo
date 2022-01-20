@@ -48,7 +48,7 @@ class _SignInState extends State<SignUp> {
               Container(
                 padding: EdgeInsets.only(left: 35, top: 30),
                 child: Text(
-                  'Create\nAccount',
+                  'Create\nStudent Account',
                   style: TextStyle(color: Colors.white, fontSize: 50),
                 ),
               ),
@@ -218,19 +218,13 @@ class _SignInState extends State<SignUp> {
                                         _signupinfo(nameCtrl.text,phnCtrl.text,emailCtrl.text,passCtrl.text);
 
                                       },
-                                      child: Text("Sign Up",),
+                                      child: Text("Sign Up",style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 27,
+                                          fontWeight: FontWeight.w700),),
                                     )
                                 ),
-                                CircleAvatar(
-                                  radius: 30,
-                                  backgroundColor: Color(0xff4c505b),
-                                  child: IconButton(
-                                      color: Colors.white,
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.arrow_forward,
-                                      )),
-                                )
+
                               ],
                             ),
                             SizedBox(
