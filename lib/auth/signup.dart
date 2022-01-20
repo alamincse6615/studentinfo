@@ -244,7 +244,7 @@ class _SignInState extends State<SignUp> {
                                           "Sign In",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                              color: Color(0xffe70c0c)),
+                                              color: Color(0xffffffff)),
                                         ),
                                         onTap: () {
                                           Navigator.push(
