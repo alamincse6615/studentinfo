@@ -33,9 +33,12 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       //jisan
       appBar: AppBar(
+
         title: Text('Dashdoard'),
+        backgroundColor: Colors.indigoAccent,
         actions: [
           Padding(
+
             padding: EdgeInsets.only(right: 10.0),
             child: Icon(
               Icons.search,
@@ -182,6 +185,7 @@ class _DashboardState extends State<Dashboard> {
       ),
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.indigoAccent,
         onPressed: (){
 
 
@@ -189,14 +193,17 @@ class _DashboardState extends State<Dashboard> {
           Navigator.push(
               context,
               MaterialPageRoute(builder: (context)=>AddData())
+
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add
+        ),
+
       ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
-        color: Colors.blueAccent,
-        buttonBackgroundColor: Colors.blueAccent,
+        color: Colors.indigoAccent,
+        buttonBackgroundColor: Colors.indigoAccent,
         animationCurve: Curves.easeInOut,
         items: <Widget>[
           InkWell(
@@ -229,6 +236,7 @@ class _DashboardState extends State<Dashboard> {
 //jisan
       drawer: Drawer(
 
+
         child: SingleChildScrollView(
           child: Container(
             child: Column(
@@ -251,23 +259,23 @@ class _DashboardState extends State<Dashboard> {
       child: Column(
         // shows the list of menu drawer
         children: [
-          menuItem(1, "Dashboard", Icons.dashboard_outlined,
+          menuItem(1, "Menu", Icons.dashboard_outlined,
               currentPage == DrawerSections.dashboard ? true : false),
-          menuItem(2, "Contacts", Icons.people_alt_outlined,
+          menuItem(2, "Messages", Icons.message,
               currentPage == DrawerSections.contacts ? true : false),
           menuItem(3, "Events", Icons.event,
               currentPage == DrawerSections.events ? true : false),
-          menuItem(4, "Notes", Icons.notes,
+          menuItem(4, "Keep Notes", Icons.notes,
               currentPage == DrawerSections.notes ? true : false),
           Divider(),
-          menuItem(5, "Settings", Icons.settings_outlined,
+          menuItem(5, "Notifications", Icons.notifications_outlined,
               currentPage == DrawerSections.settings ? true : false),
-          menuItem(6, "Notifications", Icons.notifications_outlined,
+          menuItem(6, "Settings", Icons.settings_outlined,
               currentPage == DrawerSections.notifications ? true : false),
           Divider(),
-          menuItem(7, "Privacy policy", Icons.privacy_tip_outlined,
+          menuItem(7, "Send feedback Us", Icons.feedback_outlined,
               currentPage == DrawerSections.privacy_policy ? true : false),
-          menuItem(8, "Send feedback", Icons.feedback_outlined,
+          menuItem(8, "Our Privacy policy", Icons.privacy_tip_outlined,
               currentPage == DrawerSections.send_feedback ? true : false),
         ],
       ),
