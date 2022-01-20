@@ -68,7 +68,7 @@ flutter:
      - images/login.png
      - images/jisan5.jpg
      - images/heading.png
-  #   - images/a_dot_ham.jpeg
+    - images/Addinfo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

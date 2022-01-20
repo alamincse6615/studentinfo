@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:student_info/drawer/camera_widget.dart';
 import 'package:student_info/dashboard.dart';
 import 'package:student_info/drawer/image_picker.dart';
-import 'student_info/camera_widget.dart';
+
 
 class AddData extends StatefulWidget {
   const AddData({Key? key}) : super(key: key);
