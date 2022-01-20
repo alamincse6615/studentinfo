@@ -37,7 +37,7 @@ class _SignInState extends State<SignIn> {
               Container(
                 padding: EdgeInsets.only(left: 35, top: 130),
                 child: Text(
-                  'Welcome\nStudent',
+                  'Welcome\nStudents',
                   style: TextStyle(color: Colors.white, fontSize: 50),
                 ),
               ),

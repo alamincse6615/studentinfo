@@ -61,7 +61,7 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       Icon(
                         Icons.web,
-                        color: Colors.black54,
+                        color: Colors.indigoAccent,
                         size: 22.0,
                       ),
                       Padding(
@@ -71,7 +71,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Text(
                           "Visit Us",
                           style: TextStyle(
-                            color: Colors.black54,
+                            color: Colors.indigoAccent,
                             fontSize: 18.0,
                           ),
                         ),
@@ -84,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       Icon(
                         Icons.add_a_photo,
-                        color: Colors.black54,
+                        color: Colors.indigoAccent,
                         size: 22.0,
                       ),
                       Padding(
@@ -94,7 +94,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Text(
                           "Add photos",
                           style: TextStyle(
-                            color: Colors.black54,
+                            color: Colors.indigoAccent,
                             fontSize: 18.0,
                           ),
                         ),
@@ -107,7 +107,7 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       Icon(
                         Icons.favorite,
-                        color: Colors.black54,
+                        color: Colors.indigoAccent,
                         size: 22.0,
                       ),
                       Padding(
@@ -117,7 +117,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Text(
                           "Love US",
                           style: TextStyle(
-                            color: Colors.black54,
+                            color: Colors.indigoAccent,
                             fontSize: 18.0,
                           ),
                         ),
@@ -130,7 +130,7 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       Icon(
                         Icons.share,
-                        color: Colors.black54,
+                        color: Colors.indigoAccent,
                         size: 22.0,
                       ),
                       Padding(
@@ -140,7 +140,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Text(
                           "Share",
                           style: TextStyle(
-                            color: Colors.black54,
+                            color: Colors.indigoAccent,
                             fontSize: 18.0,
                           ),
                         ),
@@ -153,7 +153,7 @@ class _DashboardState extends State<Dashboard> {
                     children: [
                       Icon(
                         Icons.exit_to_app_rounded,
-                        color: Colors.black54,
+                        color: Colors.indigoAccent,
                         size: 22.0,
                       ),
                       Padding(
@@ -163,7 +163,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Text(
                           "Exit",
                           style: TextStyle(
-                            color: Colors.black54,
+                            color: Colors.indigoAccent,
                             fontSize: 18.0,
                           ),
                         ),
@@ -260,31 +260,31 @@ class _DashboardState extends State<Dashboard> {
         // shows the list of menu drawer
         children: [
           menuItem(1, "Menu", Icons.dashboard_outlined,
-              currentPage == DrawerSections.dashboard ? true : false),
+              ),
           menuItem(2, "Messages", Icons.message,
-              currentPage == DrawerSections.contacts ? true : false),
+              ),
           menuItem(3, "Events", Icons.event,
-              currentPage == DrawerSections.events ? true : false),
+              ),
           menuItem(4, "Keep Notes", Icons.notes,
-              currentPage == DrawerSections.notes ? true : false),
+              ),
           Divider(),
           menuItem(5, "Notifications", Icons.notifications_outlined,
-              currentPage == DrawerSections.settings ? true : false),
+              ),
           menuItem(6, "Settings", Icons.settings_outlined,
-              currentPage == DrawerSections.notifications ? true : false),
+              ),
           Divider(),
           menuItem(7, "Send feedback Us", Icons.feedback_outlined,
-              currentPage == DrawerSections.privacy_policy ? true : false),
+              ),
           menuItem(8, "Our Privacy policy", Icons.privacy_tip_outlined,
-              currentPage == DrawerSections.send_feedback ? true : false),
+              ),
         ],
       ),
     );
   }
 
-  Widget menuItem(int id, String title, IconData icon, bool selected) {
+  Widget menuItem(int id, String title, IconData icon, ) {
     return Material(
-      color: selected ? Colors.grey[300] : Colors.transparent,
+
       child: InkWell(
         onTap: () {
           Navigator.pop(context);
@@ -316,7 +316,7 @@ class _DashboardState extends State<Dashboard> {
                 child: Icon(
                   icon,
                   size: 20,
-                  color: Colors.black,
+                  color: Colors.indigoAccent,
                 ),
               ),
               Expanded(
@@ -324,7 +324,7 @@ class _DashboardState extends State<Dashboard> {
                 child: Text(
                   title,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.indigoAccent,
                     fontSize: 16,
                   ),
                 ),
