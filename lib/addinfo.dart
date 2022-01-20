@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:student_info/drawer/camera_widget.dart';
 import 'package:student_info/dashboard.dart';
+import 'package:student_info/drawer/image_picker.dart';
+import 'student_info/camera_widget.dart';
 
 class AddData extends StatefulWidget {
   const AddData({Key? key}) : super(key: key);
@@ -14,13 +17,30 @@ class _DashboardState extends State<AddData> {
   final ctrlclass = TextEditingController();
   final ctrlemail = TextEditingController();
   final ctrlphn = TextEditingController();
+
+
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Data "),
+
       ),
-      body: SingleChildScrollView(
+      floatingActionButton: InkWell(
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(
+                  builder: (context)=>CameraWidget() ,));
+          },
+          tooltip: 'Increment',
+          child: Icon(Icons.camera_alt,
+          ),
+        ),
+      ), //
+      body:
+      SingleChildScrollView(
         child: Column(
 
           children: [
@@ -86,10 +106,14 @@ class _DashboardState extends State<AddData> {
                   addDatatoDatabase(ctrlName.text,ctrlRoll.text,ctrlclass.text,ctrlemail.text,ctrlphn.text);
                 },
               )
+
             ),
+
+
 
           ],
         ),
+        //
       ),
     );
   }

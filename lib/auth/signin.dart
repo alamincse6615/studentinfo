@@ -11,6 +11,7 @@ class SignIn extends StatefulWidget {
   @override
   _SignInState createState() => _SignInState();
 }
+
 //jisan
 class _SignInState extends State<SignIn> {
   var _key = GlobalKey<FormState>();
@@ -124,8 +125,10 @@ class _SignInState extends State<SignIn> {
                                                 _signupinfo(emailCtrl.text,
                                                     passCtrl.text);
                                               },
-                                              child: Text("Sign In",style: TextStyle(
-                                                fontSize: 30,)),
+                                              child: Text("Sign In",
+                                                  style: TextStyle(
+                                                    fontSize: 30,
+                                                  )),
                                             )),
                                         Padding(
                                             padding: const EdgeInsets.all(8.0),
@@ -137,14 +140,16 @@ class _SignInState extends State<SignIn> {
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                      "Create An New Account ? ",style: TextStyle(
-                                                fontSize: 18,)),
-
+                                                      "Create An New Account ? ",
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                      )),
                                                   InkWell(
                                                     child: Text(
                                                       "Sign Up",
                                                       style: TextStyle(
-                                                          fontSize: 18, color: Color(
+                                                          fontSize: 18,
+                                                          color: Color(
                                                               0xffe70c0c)),
                                                     ),
                                                     onTap: () {
@@ -156,14 +161,16 @@ class _SignInState extends State<SignIn> {
                                                                       SignUp()));
                                                     },
                                                   ),
-
                                                   TextButton(
                                                       onPressed: () {},
                                                       child: Text(
                                                         'Forgot Password',
                                                         style: TextStyle(
-                                                          decoration: TextDecoration.underline,
-                                                          color: Color(0xff4c505b),
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .underline,
+                                                          color:
+                                                              Color(0xfff9fafc),
                                                           fontSize: 18,
                                                         ),
                                                       )),

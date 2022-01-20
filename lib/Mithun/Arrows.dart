@@ -16,15 +16,15 @@ class _arrowsState extends State<arrows> {
 
       ),
       backgroundColor: Color(0xffe3b813),
-          body:
-          Column(
-            children: [
-              Center(child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("WELCOME ARROWS PAGE"),
-              )),
-            ],
-          ),
+      body:
+      Column(
+        children: [
+          Center(child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("WELCOME ARROWS PAGE"),
+          )),
+        ],
+      ),
 
     );
   }
