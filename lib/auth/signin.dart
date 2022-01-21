@@ -1,9 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/auth/signup.dart';
 import 'package:student_info/dashboard.dart';
+import 'package:student_info/password%20resert/password.dart';
+import 'package:student_info/password%20resert/send_instructions/send_instructions_view.dart';
+import 'package:student_info/password_reset/send_instructions/send_instructions_view.dart';
+import 'package:student_info/password_reset/util.dart';
+
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -161,19 +165,34 @@ class _SignInState extends State<SignIn> {
                                                                       SignUp()));
                                                     },
                                                   ),
-                                                  TextButton(
-                                                      onPressed: () {},
-                                                      child: Text(
-                                                        'Forgot Password',
-                                                        style: TextStyle(
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                          color:
-                                                              Color(0xfff9fafc),
-                                                          fontSize: 18,
-                                                        ),
-                                                      )),
+                                                  InkWell(child: TextButton(
+
+                                                        onPressed: () { Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        SendInstructionsView())); },
+                                                        child: Text(
+                                                          'Forgot Password',
+                                                          style: TextStyle(
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .underline,
+                                                            color:
+                                                                Color(0xfff9fafc),
+                                                            fontSize: 18,
+                                                          ),
+
+                                                        )
+
+                                                          ),
+
+
+                                                  ),
+
+
+
                                                 ],
                                               ),
                                             )),
