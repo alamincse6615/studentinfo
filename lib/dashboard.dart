@@ -9,7 +9,6 @@ import 'package:student_info/addinfo.dart';
 import 'package:student_info/drawer/my_drawer_header.dart';
 import 'package:student_info/drawer/grid_search.dart';
 
-
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
@@ -38,29 +37,23 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Colors.indigoAccent,
         actions: [
           InkWell(
-
             child: Padding(
-
               padding: EdgeInsets.only(right: 10.0),
               child: Icon(
-
                 Icons.search,
-
                 size: 28.0,
                 color: Colors.white,
-
-
               ),
-
             ),
-    onTap: (){
-    Navigator.push(context,
-    MaterialPageRoute(
-    builder: (context)=>GridSearchScreen(),),);
-    },
-    ),
-
-
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GridSearchScreen(),
+                ),
+              );
+            },
+          ),
           Padding(
             padding: EdgeInsets.only(right: 10.0),
             child: PopupMenuButton(
@@ -175,6 +168,7 @@ class _DashboardState extends State<Dashboard> {
                         padding: EdgeInsets.only(
                           left: 10.0,
                         ),
+
                         child: Text(
                           "Exit",
                           style: TextStyle(
@@ -190,7 +184,16 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
         ],
-      ),
+
+          shape: ShapeBorder.lerp(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(60.0),
+            ),
+            null,
+            0,
+          ),
+        ),
+
 
       body: Column(
         children: [
@@ -272,10 +275,48 @@ class _DashboardState extends State<Dashboard> {
       child: Column(
         // shows the list of menu drawer
         children: [
+
           menuItem(
             1,
             "Menu",
             Icons.dashboard_outlined,
+          ),
+          ListTile(
+            leading: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Icon(Icons.fiber_new_sharp,size: 20,
+                color: Colors.indigoAccent,),
+
+            ),
+            title: Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Text(
+                  'New post',
+                  style: TextStyle(
+                    color: Colors.indigoAccent,
+                    fontSize: 16,
+                  ),
+                )),
+            onTap: () => null,
+            trailing: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipOval(
+                child: Container(
+                  color: Colors.greenAccent,
+                  width: 30,
+                  height: 30,
+                  child: Center(
+                    child: Text(
+                      '69',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           menuItem(
             2,
@@ -314,6 +355,7 @@ class _DashboardState extends State<Dashboard> {
             "Our Privacy policy",
             Icons.privacy_tip_outlined,
           ),
+
         ],
       ),
     );
