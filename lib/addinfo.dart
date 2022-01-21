@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:student_info/drawer/camera_widget.dart';
 import 'package:student_info/dashboard.dart';
-import 'package:student_info/drawer/image_picker.dart';
-import 'student_info/camera_widget.dart';
+
+
 
 class AddData extends StatefulWidget {
   const AddData({Key? key}) : super(key: key);
@@ -53,7 +53,7 @@ class _DashboardState extends State<AddData> {
                 padding: EdgeInsets.only(left: 35, top: 30),
                 child: Text(
                   'Edit\nAccount',
-                  style: TextStyle(color: Colors.white, fontSize: 50),
+                  style: TextStyle(color: Colors.white, fontSize: 55),
                 ),
               ),
               SingleChildScrollView(

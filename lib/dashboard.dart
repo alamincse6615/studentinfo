@@ -7,6 +7,8 @@ import 'package:student_info/Mithun/List.dart';
 import 'package:student_info/Mithun/Studentinfo.dart';
 import 'package:student_info/addinfo.dart';
 import 'package:student_info/drawer/my_drawer_header.dart';
+import 'package:student_info/drawer/grid_search.dart';
+
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -22,7 +24,6 @@ class _DashboardState extends State<Dashboard> {
 
   var currentPage;
 
-
   @override
   void initState() {
     _databaseReference = FirebaseDatabase.instance.reference();
@@ -33,19 +34,33 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       //jisan
       appBar: AppBar(
-
         title: Text('Dashdoard'),
         backgroundColor: Colors.indigoAccent,
         actions: [
-          Padding(
+          InkWell(
 
-            padding: EdgeInsets.only(right: 10.0),
-            child: Icon(
-              Icons.search,
-              size: 28.0,
-              color: Colors.white,
+            child: Padding(
+
+              padding: EdgeInsets.only(right: 10.0),
+              child: Icon(
+
+                Icons.search,
+
+                size: 28.0,
+                color: Colors.white,
+
+
+              ),
+
             ),
-          ),
+    onTap: (){
+    Navigator.push(context,
+    MaterialPageRoute(
+    builder: (context)=>GridSearchScreen(),),);
+    },
+    ),
+
+
           Padding(
             padding: EdgeInsets.only(right: 10.0),
             child: PopupMenuButton(
@@ -179,26 +194,17 @@ class _DashboardState extends State<Dashboard> {
 
       body: Column(
         children: [
-            Text(auth.currentUser!.uid.toString()),
+          Text(auth.currentUser!.uid.toString()),
         ],
-
       ),
 
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigoAccent,
-        onPressed: (){
-
-
-
+        onPressed: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context)=>AddData())
-
-          );
+              context, MaterialPageRoute(builder: (context) => AddData()));
         },
-        child: Icon(Icons.add
-        ),
-
+        child: Icon(Icons.add),
       ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
@@ -207,36 +213,43 @@ class _DashboardState extends State<Dashboard> {
         animationCurve: Curves.easeInOut,
         items: <Widget>[
           InkWell(
-            child: Icon(Icons.add,color: Colors.white,
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
             ),
-            onTap: (){
-              Navigator.push(context,
-                  MaterialPageRoute(
-                  builder: (context)=>add(),),);
-            },
-          ),
-
-          InkWell(child: Icon(Icons.list, color: Colors.white),
-            onTap: (){
-              Navigator.push(context,
-                  MaterialPageRoute(
-                  builder: (context)=>list(),));
-            },
-          ),
-
-          InkWell(child: Icon(Icons.compare_arrows, color: Colors.white),
-          onTap: (){
-            Navigator.push(context,
+            onTap: () {
+              Navigator.push(
+                context,
                 MaterialPageRoute(
-                builder: (context)=>arrows(),));
-          },
+                  builder: (context) => add(),
+                ),
+              );
+            },
+          ),
+          InkWell(
+            child: Icon(Icons.list, color: Colors.white),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => list(),
+                  ));
+            },
+          ),
+          InkWell(
+            child: Icon(Icons.compare_arrows, color: Colors.white),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => arrows(),
+                  ));
+            },
           ),
         ],
       ),
 //jisan
       drawer: Drawer(
-
-
         child: SingleChildScrollView(
           child: Container(
             child: Column(
@@ -259,32 +272,59 @@ class _DashboardState extends State<Dashboard> {
       child: Column(
         // shows the list of menu drawer
         children: [
-          menuItem(1, "Menu", Icons.dashboard_outlined,
-              ),
-          menuItem(2, "Messages", Icons.message,
-              ),
-          menuItem(3, "Events", Icons.event,
-              ),
-          menuItem(4, "Keep Notes", Icons.notes,
-              ),
+          menuItem(
+            1,
+            "Menu",
+            Icons.dashboard_outlined,
+          ),
+          menuItem(
+            2,
+            "Messages",
+            Icons.message,
+          ),
+          menuItem(
+            3,
+            "Events",
+            Icons.event,
+          ),
+          menuItem(
+            4,
+            "Keep Notes",
+            Icons.notes,
+          ),
           Divider(),
-          menuItem(5, "Notifications", Icons.notifications_outlined,
-              ),
-          menuItem(6, "Settings", Icons.settings_outlined,
-              ),
+          menuItem(
+            5,
+            "Notifications",
+            Icons.notifications_outlined,
+          ),
+          menuItem(
+            6,
+            "Settings",
+            Icons.settings_outlined,
+          ),
           Divider(),
-          menuItem(7, "Send feedback Us", Icons.feedback_outlined,
-              ),
-          menuItem(8, "Our Privacy policy", Icons.privacy_tip_outlined,
-              ),
+          menuItem(
+            7,
+            "Send feedback Us",
+            Icons.feedback_outlined,
+          ),
+          menuItem(
+            8,
+            "Our Privacy policy",
+            Icons.privacy_tip_outlined,
+          ),
         ],
       ),
     );
   }
 
-  Widget menuItem(int id, String title, IconData icon, ) {
+  Widget menuItem(
+    int id,
+    String title,
+    IconData icon,
+  ) {
     return Material(
-
       child: InkWell(
         onTap: () {
           Navigator.pop(context);

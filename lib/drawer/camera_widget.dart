@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CameraWidget extends StatefulWidget{
+  const CameraWidget({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -78,7 +80,8 @@ class CameraWidgetState extends State<CameraWidget>{
   }
 
   void _openGallery(BuildContext context) async{
-    final pickedFile = await ImagePicker().getImage(
+    final pickedFile = await ImagePicker().
+    getImage(
       source: ImageSource.gallery ,
     );
     setState(() {
