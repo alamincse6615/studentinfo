@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-class add extends StatefulWidget {
-  const add({Key? key}) : super(key: key);
+class adds extends StatefulWidget {
+  const adds({Key? key}) : super(key: key);
 
   @override
   _studentinfoState createState() => _studentinfoState();
 }
 
-class _studentinfoState extends State<add> {
+class _studentinfoState extends State<adds> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Student Info"),
-      ),
       backgroundColor: Color(0xff0de8c8),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("WELLCOME ADD PAGE"),
-          )),
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0),
+            child: Text("WELLCOME ADD PAGE",
+            style: TextStyle(fontSize: 32 ),),
+          ),
         ],
       ),
     );

@@ -17,6 +17,15 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+
+  var page = [
+    arrows(),
+    lists(),
+    adds()
+  ];
+var index = 0;
+
+
   FirebaseAuth auth = FirebaseAuth.instance;
 
   late DatabaseReference _databaseReference;
@@ -187,7 +196,7 @@ class _DashboardState extends State<Dashboard> {
 
           shape: ShapeBorder.lerp(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(60.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             null,
             0,
@@ -195,11 +204,12 @@ class _DashboardState extends State<Dashboard> {
         ),
 
 
-      body: Column(
-        children: [
-          Text(auth.currentUser!.uid.toString()),
-        ],
-      ),
+      body:
+         // Text(auth.currentUser!.uid.toString()),
+          page [index],
+
+
+
 
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigoAccent,
@@ -209,49 +219,30 @@ class _DashboardState extends State<Dashboard> {
         },
         child: Icon(Icons.add),
       ),
+
+
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
+
+        items: [
+          Icon(Icons.add, color: Colors.white,),
+          Icon(Icons.list, color: Colors.white),
+          Icon(Icons.compare_arrows, color: Colors.white),
+        ],
+
+        backgroundColor: Colors.purpleAccent,
         color: Colors.indigoAccent,
         buttonBackgroundColor: Colors.indigoAccent,
         animationCurve: Curves.easeInOut,
-        items: <Widget>[
-          InkWell(
-            child: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => add(),
-                ),
-              );
-            },
-          ),
-          InkWell(
-            child: Icon(Icons.list, color: Colors.white),
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => list(),
-                  ));
-            },
-          ),
-          InkWell(
-            child: Icon(Icons.compare_arrows, color: Colors.white),
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => arrows(),
-                  ));
-            },
-          ),
-        ],
+
+          onTap: (val){
+          setState(() {
+            index = val;
+          });
+
+          },
+
+
       ),
-//jisan
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Container(
