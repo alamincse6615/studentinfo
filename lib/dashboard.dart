@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/Mithun/Arrows.dart';
 import 'package:student_info/Mithun/List.dart';
@@ -8,6 +9,7 @@ import 'package:student_info/Mithun/Studentinfo.dart';
 import 'package:student_info/addinfo.dart';
 import 'package:student_info/drawer/my_drawer_header.dart';
 import 'package:student_info/drawer/grid_search.dart';
+import 'package:student_info/profile.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -193,10 +195,9 @@ var index = 0;
             ),
           ),
         ],
-
           shape: ShapeBorder.lerp(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(60),bottomRight: Radius.circular(60)),
             ),
             null,
             0,
@@ -214,8 +215,8 @@ var index = 0;
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigoAccent,
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AddData()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+
         },
         child: Icon(Icons.add),
       ),
@@ -238,10 +239,7 @@ var index = 0;
           setState(() {
             index = val;
           });
-
           },
-
-
       ),
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -267,10 +265,14 @@ var index = 0;
         // shows the list of menu drawer
         children: [
 
-          menuItem(
-            1,
-            "Menu",
-            Icons.dashboard_outlined,
+          InkWell(
+            child: menuItem(
+              1,
+              "Profile",
+              Icons.dashboard_outlined,
+            ),
+            onTap: (){
+            },
           ),
           ListTile(
             leading: Padding(

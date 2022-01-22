@@ -8,7 +8,6 @@ import 'package:student_info/password%20resert/send_instructions/send_instructio
 import 'package:student_info/password_reset/send_instructions/send_instructions_view.dart';
 import 'package:student_info/password_reset/util.dart';
 
-
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
 
@@ -122,6 +121,28 @@ class _SignInState extends State<SignIn> {
                                                 )),
                                           ),
                                         ),
+                                        InkWell(
+                                          child: TextButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder:
+                                                            (context) =>
+                                                            SendInstructionsView()));
+                                              },
+                                              child: Text(
+                                                'Forgot Password',
+                                                style: TextStyle(
+                                                  decoration:
+                                                  TextDecoration
+                                                      .underline,
+                                                  color: Color(
+                                                      0xfff9fafc),
+                                                  fontSize: 18,
+                                                ),
+                                              )),
+                                        ),
                                         Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: ElevatedButton(
@@ -165,33 +186,6 @@ class _SignInState extends State<SignIn> {
                                                                       SignUp()));
                                                     },
                                                   ),
-                                                  InkWell(child: TextButton(
-
-                                                        onPressed: () { Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        SendInstructionsView())); },
-                                                        child: Text(
-                                                          'Forgot Password',
-                                                          style: TextStyle(
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .underline,
-                                                            color:
-                                                                Color(0xfff9fafc),
-                                                            fontSize: 18,
-                                                          ),
-
-                                                        )
-
-                                                          ),
-
-
-                                                  ),
-
-
 
                                                 ],
                                               ),
