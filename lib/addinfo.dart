@@ -23,7 +23,7 @@ class _DashboardState extends State<AddData> {
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/Add a heading.png"),
+            image: AssetImage("images/heading.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -50,7 +50,7 @@ class _DashboardState extends State<AddData> {
             ), //
             body: Stack(children: [
               Container(
-                padding: EdgeInsets.only(left: 35, top: 30),
+                padding: EdgeInsets.only(left: 35, top: 5),
                 child: Text(
                   'Edit\nAccount',
                   style: TextStyle(color: Colors.white, fontSize: 55),

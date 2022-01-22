@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
         decoration: BoxDecoration(
         image: DecorationImage(
-        image: AssetImage('images/heading.png'), fit: BoxFit.cover),
+        image: AssetImage('images/Add a heading.png'), fit: BoxFit.cover),
     ),);
   }
 
