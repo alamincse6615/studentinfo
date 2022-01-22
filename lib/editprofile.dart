@@ -22,7 +22,7 @@ class _EditProfileState extends State<EditProfile> {
             Container(
               height: 200,
               width: MediaQuery.of(context).size.width,
-              color: Colors.green,
+              color: Colors.indigoAccent,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: imageFile==null?InkWell(
@@ -50,7 +50,7 @@ class _EditProfileState extends State<EditProfile> {
                     RaisedButton(onPressed: (){
                       uploadImagetoFirebase(imageFile!);
                     },
-                      child: Text("Save"),)
+                      child: Text("Save", style: TextStyle(color: Colors.blueAccent, )),)
                   ],
                 ),
               ),
@@ -74,7 +74,7 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ),
-            RaisedButton(color: Colors.green,onPressed: (){},child: Text("Save"),)
+            RaisedButton(color: Colors.indigoAccent,onPressed: (){},child: Text("Save", style: TextStyle(color: Colors.white, )),)
           ],
         ),
       ),

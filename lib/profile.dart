@@ -19,7 +19,7 @@ class _ProfileState extends State<Profile> {
             Container(
               height: 200,
               width: MediaQuery.of(context).size.width,
-              color: Colors.green,
+              color: Colors.indigoAccent,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: CircleAvatar(
@@ -38,11 +38,12 @@ class _ProfileState extends State<Profile> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.indigoAccent,
         onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context)=>EditProfile()));
 
         },
-        child: Icon(Icons.edit),
+        child: Icon(Icons.edit,color: Colors.white)
 
       ),
 
