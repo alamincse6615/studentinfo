@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:student_info/password%20resert/create_new_password/create_new_password_view.dart';
+import 'package:student_info/password%20resert/send_instructions/send_instructions_view.dart';
 import 'package:student_info/password_reset/util.dart';
 
 import '../util.dart';
@@ -24,12 +25,12 @@ class CheckEmailView extends StatelessWidget {
     leadingWidth: 30,
     leading: IconButton(
     icon: const Icon(Icons.arrow_back),
-    onPressed: () {},
+    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SendInstructionsView()));},
     ),
 
     ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Stack(
           children: [
             Column(

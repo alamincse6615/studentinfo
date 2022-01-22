@@ -22,7 +22,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: AssetImage("images/jisan5.jpg"),
+                image: AssetImage("images/jisan5.jpg",),
               ),
             ),
           ),

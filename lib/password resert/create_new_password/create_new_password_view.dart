@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student_info/password%20resert/check_email/check_email_view.dart';
 
 class CreateNewPasswordView extends StatelessWidget {
   const CreateNewPasswordView({Key? key}) : super(key: key);
@@ -20,11 +21,11 @@ class CreateNewPasswordView extends StatelessWidget {
     leadingWidth: 30,
     leading: IconButton(
     icon: const Icon(Icons.arrow_back),
-    onPressed: () {},
+    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckEmailView()));},
     ),
     ),
       body: Padding(
-        padding: const EdgeInsets.all(60.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: [
             const SizedBox(

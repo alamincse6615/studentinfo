@@ -38,7 +38,7 @@ class _SignInState extends State<SignIn> {
             body: Stack(children: [
               Container(),
               Container(
-                padding: EdgeInsets.only(left: 35, top: 130),
+                padding: EdgeInsets.only(left: 5, top: 50),
                 child: Text(
                   'Welcome\nStudents',
                   style: TextStyle(color: Colors.white, fontSize: 50),
@@ -127,42 +127,27 @@ class _SignInState extends State<SignIn> {
                                                 Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
-                                                        builder:
-                                                            (context) =>
+                                                        builder: (context) =>
                                                             SendInstructionsView()));
                                               },
                                               child: Text(
                                                 'Forgot Password',
                                                 style: TextStyle(
                                                   decoration:
-                                                  TextDecoration
-                                                      .underline,
-                                                  color: Color(
-                                                      0xfff9fafc),
+                                                      TextDecoration.underline,
+                                                  color: Color(0xfff9fafc),
                                                   fontSize: 18,
                                                 ),
                                               )),
                                         ),
                                         Padding(
                                             padding: const EdgeInsets.all(8.0),
-                                            child: ElevatedButton(
-                                              onPressed: () {
-                                                _signupinfo(emailCtrl.text,
-                                                    passCtrl.text);
-                                              },
-                                              child: Text("Sign In",
-                                                  style: TextStyle(
-                                                    fontSize: 30,
-                                                  )),
-                                            )),
-                                        Padding(
-                                            padding: const EdgeInsets.all(8.0),
                                             child: Center(
                                               child: Row(
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
+                                                CrossAxisAlignment.center,
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                       "Create An New Account ? ",
@@ -183,13 +168,25 @@ class _SignInState extends State<SignIn> {
                                                           MaterialPageRoute(
                                                               builder:
                                                                   (context) =>
-                                                                      SignUp()));
+                                                                  SignUp()));
                                                     },
                                                   ),
-
                                                 ],
                                               ),
                                             )),
+                                        Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: ElevatedButton(
+                                              onPressed: () {
+                                                _signupinfo(emailCtrl.text,
+                                                    passCtrl.text);
+                                              },
+                                              child: Text("Sign In",
+                                                  style: TextStyle(
+                                                    fontSize: 30,
+                                                  )),
+                                            )),
+
                                       ],
                                     ),
                                   )

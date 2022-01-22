@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+//aro kaj ace
 //project full hoi nai ekon oo baki ace
 class GridSearchScreen extends StatefulWidget {
   const GridSearchScreen({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
   List<String> nameList = [
     'Jisan Jomadder',
     'Jomadder',
-    'Nurunnobe Jomadder',
+    'Ami',
     'Jisan',
     'ER Jebon',
     'F Rabby',
@@ -23,7 +23,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
     'Lincoln Ibrahim',
     'Md Al Amin Mia',
     'Mithun Mandal',
-    'Nurunnobe Jomadder Jisan',
+    'Nurunnobe',
     'Phis Khan II',
     'Rasel Hassan',
     'Shahrear Tomal',
@@ -104,7 +104,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(
-                          Icons.search_off,
+                          Icons.search_off,color: Colors.indigoAccent,
                           size: 160,
                         ),
                       ),

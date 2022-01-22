@@ -19,14 +19,8 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-
-  var page = [
-    arrows(),
-    lists(),
-    adds()
-  ];
-var index = 0;
-
+  var page = [arrows(), lists(), adds()];
+  var index = 0;
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -179,7 +173,6 @@ var index = 0;
                         padding: EdgeInsets.only(
                           left: 10.0,
                         ),
-
                         child: Text(
                           "Exit",
                           style: TextStyle(
@@ -195,51 +188,48 @@ var index = 0;
             ),
           ),
         ],
-          shape: ShapeBorder.lerp(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(60),bottomRight: Radius.circular(60)),
-            ),
-            null,
-            0,
+        shape: ShapeBorder.lerp(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(60),
+                bottomRight: Radius.circular(60)),
           ),
+          null,
+          0,
         ),
-
+      ),
 
       body:
-         // Text(auth.currentUser!.uid.toString()),
-          page [index],
-
-
-
+          // Text(auth.currentUser!.uid.toString()),
+          page[index],
 
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigoAccent,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
-
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => AddData()));
         },
         child: Icon(Icons.add),
       ),
 
-
       bottomNavigationBar: CurvedNavigationBar(
-
         items: [
-          Icon(Icons.add, color: Colors.white,),
+          Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
           Icon(Icons.list, color: Colors.white),
           Icon(Icons.compare_arrows, color: Colors.white),
         ],
-
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.white,
         color: Colors.indigoAccent,
         buttonBackgroundColor: Colors.indigoAccent,
         animationCurve: Curves.easeInOut,
-
-          onTap: (val){
+        onTap: (val) {
           setState(() {
             index = val;
           });
-          },
+        },
       ),
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -265,160 +255,81 @@ var index = 0;
         // shows the list of menu drawer
         children: [
 
-          InkWell(
-            child: menuItem(
-              1,
-              "Profile",
-              Icons.dashboard_outlined,
-            ),
-            onTap: (){
-            },
+          ListTile(
+            leading: Icon(Icons.person,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('Profile'),
+            onTap: () {Navigator.push(
+                context, MaterialPageRoute(builder: (context)=>Profile()));},
+
+          ),
+
+          ListTile(
+            leading: Icon(Icons.favorite,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('Favorites'),
+            onTap: () => null,
           ),
           ListTile(
-            leading: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Icon(Icons.fiber_new_sharp,size: 20,
-                color: Colors.indigoAccent,),
-
-            ),
-            title: Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: Text(
-                  'New post',
-                  style: TextStyle(
-                    color: Colors.indigoAccent,
-                    fontSize: 16,
-                  ),
-                )),
+            leading: Icon(Icons.message,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('message'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.event,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('Events'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.fiber_new_sharp,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('News Feed'),
             onTap: () => null,
             trailing: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipOval(
-                child: Container(
-                  color: Colors.greenAccent,
-                  width: 30,
-                  height: 30,
-                  child: Center(
-                    child: Text(
-                      '69',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                      ),
+    padding: const EdgeInsets.all(8.0),
+    child: ClipOval(
+    child: Container(
+                color: Colors.greenAccent,
+                width: 20,
+                height: 20,
+                child: Center(
+                  child: Text(
+                    '69',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
                     ),
                   ),
+                )
                 ),
               ),
             ),
           ),
-          menuItem(
-            2,
-            "Messages",
-            Icons.message,
-          ),
-          menuItem(
-            3,
-            "Events",
-            Icons.event,
-          ),
-          menuItem(
-            4,
-            "Keep Notes",
-            Icons.notes,
-          ),
-          Divider(),
-          menuItem(
-            5,
-            "Notifications",
-            Icons.notifications_outlined,
-          ),
-          menuItem(
-            6,
-            "Settings",
-            Icons.settings_outlined,
-          ),
-          Divider(),
-          menuItem(
-            7,
-            "Send feedback Us",
-            Icons.feedback_outlined,
-          ),
-          menuItem(
-            8,
-            "Our Privacy policy",
-            Icons.privacy_tip_outlined,
-          ),
 
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.feedback_outlined,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('Send feedback Us'),
+            onTap: () => null,
+          ),
+          ListTile(
+            leading: Icon(Icons.privacy_tip_outlined,size: 20,
+              color: Colors.indigoAccent,),
+            title: Text('Our Privacy policy'),
+            onTap: () => null,
+          ),
+          ListTile(
+            title: Text('Exit'),
+            leading: Icon(Icons.exit_to_app_rounded,size: 20,
+              color: Colors.indigoAccent,),
+            onTap: () => null,
+          ),
         ],
       ),
     );
   }
-
-  Widget menuItem(
-    int id,
-    String title,
-    IconData icon,
-  ) {
-    return Material(
-      child: InkWell(
-        onTap: () {
-          Navigator.pop(context);
-          setState(() {
-            if (id == 1) {
-              currentPage = DrawerSections.dashboard;
-            } else if (id == 2) {
-              currentPage = DrawerSections.contacts;
-            } else if (id == 3) {
-              currentPage = DrawerSections.events;
-            } else if (id == 4) {
-              currentPage = DrawerSections.notes;
-            } else if (id == 5) {
-              currentPage = DrawerSections.settings;
-            } else if (id == 6) {
-              currentPage = DrawerSections.notifications;
-            } else if (id == 7) {
-              currentPage = DrawerSections.privacy_policy;
-            } else if (id == 8) {
-              currentPage = DrawerSections.send_feedback;
-            }
-          });
-        },
-        child: Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              Expanded(
-                child: Icon(
-                  icon,
-                  size: 20,
-                  color: Colors.indigoAccent,
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    color: Colors.indigoAccent,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }
 
-enum DrawerSections {
-  dashboard,
-  contacts,
-  events,
-  notes,
-  settings,
-  notifications,
-  privacy_policy,
-  send_feedback,
-}

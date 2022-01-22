@@ -2,7 +2,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
+//aro kaj ace
 class CameraWidget extends StatefulWidget{
   const CameraWidget({Key? key}) : super(key: key);
 

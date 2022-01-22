@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> nameList = [
     'Jisan Jomadder',
     'Jomadder',
-    'Nurunnobe Jomadder',
+    'Nurunnobe ',
     'Jisan',
     'ER Jebon',
     'F Rabby',
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'Lincoln Ibrahim',
     'Md Al Amin Mia',
     'Mithun Mandal',
-    'Nurunnobe Jomadder Jisan',
+    'Nurunnobe  Jisan',
     'Phis Khan II',
     'Rasel Hassan',
     'Shahrear Tomal',
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.blue.shade300,
+            backgroundColor: Colors.indigoAccent,
             title: Container(
               decoration: BoxDecoration(
                   color: Colors.blue.shade200,
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(
-                          Icons.search_off,
+                          Icons.search_off,color: Colors.indigoAccent,
                           size: 160,
                         ),
                       ),

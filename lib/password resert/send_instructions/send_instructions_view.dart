@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student_info/auth/signin.dart';
 import 'package:student_info/password%20resert/check_email/check_email_view.dart';
 import 'package:student_info/password_reset/util.dart';
 import '../util.dart';
@@ -23,7 +24,7 @@ class SendInstructionsView extends StatelessWidget {
             leadingWidth: 30,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back),
-              onPressed: () {},
+              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));},
             ),
             actions: const [
 
@@ -32,7 +33,7 @@ class SendInstructionsView extends StatelessWidget {
           body: Center(
 
             child: Padding(
-              padding: const EdgeInsets.all(100.0),
+              padding: const EdgeInsets.all(20.0),
 
               child: ListView(
 
