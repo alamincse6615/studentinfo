@@ -4,7 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:student_info/Mithun/Arrows.dart';
-import 'package:student_info/Mithun/List.dart';
+import 'package:student_info/Mithun/user_list.dart';
 import 'package:student_info/Mithun/Studentinfo.dart';
 import 'package:student_info/addinfo.dart';
 import 'package:student_info/drawer/my_drawer_header.dart';
@@ -19,7 +19,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  var page = [arrows(), lists(), adds()];
+  var page = [arrows(), UserList(), adds()];
   var index = 0;
 
   FirebaseAuth auth = FirebaseAuth.instance;
