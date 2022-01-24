@@ -84,4 +84,7 @@ class _EditProfileState extends State<EditProfile> {
 
 uploadImagetoFirebase(File imageFile) {
 
+
+  // update
+
 }
