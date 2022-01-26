@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+// Mobile diya commit cheek korlam
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
